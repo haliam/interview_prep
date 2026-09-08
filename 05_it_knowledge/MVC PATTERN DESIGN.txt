@@ -1,0 +1,34 @@
+MAKE A DIAGRAM
+
+VIEWS (Consume los viewmodels)
+CONTROLLER (Orquestador de acciones y algunas acciones terminaran en vistas(Prepara los viewmodel)
+SERVICE (Reglas de negocio)
+UOW (Transaccionalidad)
+REPOSITORIE (Abstracción de la persistencia)
+MODEL (Entidades de negocio)
+DB (Persistencia de datos)(Base de datos/Archivo xml/ un api/ hoja excel...)
+
+AUTOMAPPER (Mapeo de un objecto de un dominio a otro)
+
+
+
+Entre la base de datos y el modelo normalmente es de 1 a 1 pero no siempre tiene que ser así. Por las reglas de negocio se puede requerir el join de diferentes tablas para construir una vista que aglutine los diferentes campos necesarios. Esto tiene que ver con el performance
+
+
+DTOS VS BUSINESS ENTITIES or MODEL(Hay debate mirar con más detalle).
+DTOS (Objeto plano Solo tiene campos)
+BUSINESS ENTITIES (Tiene campos y operaciones)
+
+ENTITY VS BUSINESS ENTITIES
+
+PARADIGMAS DE DESARROLLO
+DDD (DOMAIN DRIVEN DESIGN)(MVC / MVVM)
+TDD (TEST DRIVEN DESIGN)
+EDA (EVENT DRIVEN ARCHITECTURE)
+
+
+REVISAR TOP SHORT CUT VS STUDIO
+F5
+CTRL + F5
+CTRL + T (Select the element by file).
+CTRL + F (Select all place where the element appears).

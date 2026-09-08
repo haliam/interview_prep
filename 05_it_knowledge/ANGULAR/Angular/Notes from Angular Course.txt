@@ -1,0 +1,79 @@
+Notes from Angular Course
+-----------------------------
+
+Ecmascript 5 versión más extendida con los browser.
+V8 máquina virtual o motor de Chromiun que corre a javascritp
+Patrón modul nos permite crear un namespace
+Patrón modul es una función constructora
+Paradigma orientado a prototipo = Una propiedad de un objeto que nos permite utilizar ese objeto.
+Intermediación = proceso en el que las llamadas js se ejecutan mediante el browser.
+Closure función que contiene otra función.
+TypeScript Declaración var vs let preferible let
+TypeScript soporta sobrecarga y se utiliza como un case 
+TypeScript Orientada a Interface no deja huella
+Namespace vs modulo
+Namespace organización lógica
+Modulo organización física
+MEAN Stack
+Programación modular vs programación orientada a objeto
+Programación modular escalable 
+Angular 5/6/8/11
+ng comando de aplicaciones Angular
+RxJS Librería proveniente de Microsoft que se convierte en el centro de la librería Angular y de otras como React 
+RxJS Nos da objetos observables para objservar un flujo: Eventos, datos, etc...
+Pattern Observable vs Pattern Promise vs Event vs Flujo
+Pattern Observable no se debe abusar porque tiene un peso mayor...
+Ivy Compiler se introduce definitivamente en versión 9
+En Angular 11 se introduce Webpack 5 que crea paquetes bundles de js y permite que la intermediación (envío al browser) se haga de manera óptima
+Angular 12 poca compatibilidad con IE 11 (Internet Explorer)
+Angular para aplicaciones orientada a datos es el mejor si 
+Event binding ejemplo un cambio en la fecha input modifica el componente
+Binding Bidireccional cuando se cumple el event binding y además desde el componente se actualiza la vista.
+Angular el ideal es organizar los modulos fuertemente cohesivos e independientes 
+sourcemap = true
+Siempre mejor utilizar npm
+Decorator pattern??
+
+declarations vs imports vs providers
+Seamos conscientes que cada import acopla el contenido de lo que importa 
+hooks => gancho que permite intervenir en el ciclo de vida de un componente por ejemplo con la función:
+ngOnInit()
+Ciclo de vida de un componente
+export garantiza que el módulo se puede usar desde fuera del mismo módulo
+ng g c lib/components/nav/title --flat el flat no crea carpeta añade el componente dentro de la ruta que se especifique
+ng g c views/home/home --export --flat
+Un buen programador angular trabaja con lazy loading... no carga todo desde el principio sino diferido
+El 99% de los modulos deberían cargarse en forma lazy-loading
+Para que un módulo se cargue de forma diferida lazy-loading tiene que tener enrutamiento en el propio modulo
+Luego se utiliza la función loadChildren()
+Garantizar el enrutamiento centralizado en un solo sitio concentrado
+FormsModule para formularios complejos
+Template-based Forms
+Reactive-Forms para formularios dinámicos
+ngfor = loop foor
+Pipe pura se ejecuta síncrona formatear una fecha
+AsyncPipe inpuras asíncronas JsonPipe / KeyValuePipe
+Pipe es esencialmente una función de transformación que podemos definir y que puede tener parámetros.
+Promise es una forma de evento que promete devolver un valor y tiene un inicio y un final.
+Observable patrón desacoplado para manejar flujos. 
+Promesa EventEmitter acoplado
+Comunicación Dentro de un mismo Modulo EventEmitter Input Output
+Si hay dos modulos operaciones y pedidos que deben estar desacoplados pero necesito comunicarlos se puede utilizar varios patrones desacoplados como patrón Datos, Observable, Event Bus, Servicio
+https://medium.com/notasdeangular/arquitectura-de-componentes-en-angular-761e9226fd9f
+Operador Of se utiliza para crear Observables sencillos.
+Repasar los observables en la librería RxJs https://rxjs.dev/guide/observable y testearlo online en https://stackblitz.com/
+Los observables típicamente se utilizan para escuchar apis
+Un observable puede devolver otro observable pero no es una práctica recomendada. 
+Los servicios típicamente afectan a un componente y suelen ser privados y hay que declarlo @injectable()
+Es importante tener claro la jerarquía de los modulos para saber en qué orden se cargan y garantizar el buen funcionamiento.
+Los servicios se deben cargar en Provider pero en la versión actual parece que se puede omitir y angular lo reconoce. 
+HTTP 1.1 para comunicación RestFULL
+HTTP 2.0 gRPC
+HTTP 1.1 vs 2.0
+Socket ???
+peticiones sincronas / asíncronas / paralelas
+enableProdMode es una variable que deshabilita todas las configuraciones de desarrollo y garantiza que sea entorno producción 
+Cómo en angular gestionar la persistencia y si quisieramos utilizar un token
+Session storage 
+Local storage si es necesario persistir más de un día pero no es recomendable
+cookies lleva más de 20 años puede ser el sitio ideal para almacenar putuamente un token

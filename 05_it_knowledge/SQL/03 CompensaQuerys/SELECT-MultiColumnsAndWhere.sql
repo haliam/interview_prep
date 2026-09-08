@@ -1,0 +1,15 @@
+USE [LocalFlex]
+GO
+
+SELECT [PER_ID]
+      ,[PER_NIF]
+      ,[PER_NOMBRE]
+	  ,[PER_APELLIDOS]
+	  ,[PER_FIRMA_LOPD]
+      ,[PER_FECHA_ACEPTACION_RGPD]
+  FROM [dbo].[PERSONA]
+  WHERE [PER_FK_EMPRESA_ID] = 13169
+
+GO
+
+

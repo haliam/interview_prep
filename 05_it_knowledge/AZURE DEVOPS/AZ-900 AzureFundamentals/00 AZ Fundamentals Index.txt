@@ -1,0 +1,115 @@
+--------------------------
+AZURE FUNDAMENTALS AZ-900
+---------------------------------------
+
+
+-----------------------------
+01 Describe cloud concepts
+-----------------------------
+
+	01/1 Describe cloud computing
+	---------------------------------------------------------
+	Define cloud computing.
+	Describe the shared responsibility model.
+	Define cloud models, including public, private, and hybrid.
+	Identify appropriate use cases for each cloud model.
+	Describe the consumption-based model.
+	Compare cloud pricing models.
+		
+		
+	01/2 Describe the benefits of using cloud services
+	---------------------------------------------------------
+	Describe the benefits of high availability and scalability in the cloud.
+	Describe the benefits of reliability and predictability in the cloud.
+	Describe the benefits of security and governance in the cloud.
+	Describe the benefits of manageability in the cloud.
+		
+
+	01/3 Describe cloud service types
+	---------------------------------------------------------	
+	Describe Infrastructure as a Service (IaaS).
+	Describe Platform as a Service (PaaS).
+	Describe Software as a Service (SaaS).
+	Identify appropriate use cases for each cloud service (IaaS, PaaS, SaaS).
+		
+
+---------------------------------------------------------		
+02 Describe Azure architecture and services
+---------------------------------------------------------
+
+	02/1 Describe the core architectural components of Azure
+	---------------------------------------------------------	
+	Describe Azure regions, region pairs, and sovereign regions.
+	Describe Availability Zones.
+	Describe Azure datacenters.
+	Describe Azure resources and Resource Groups.
+	Describe subscriptions.
+	Describe management groups.
+	Describe the hierarchy of resource groups, subscriptions, and management groups.
+	
+	
+	02/2 Describe Azure compute and networking services
+	---------------------------------------------------------	
+	Compare compute types, including container instances, virtual machines, and functions
+	Describe virtual machine (VM) options, including VMs, Virtual Machine Scale Sets, availability sets, Azure Virtual Desktop
+	Describe resources required for virtual machines
+	Describe application hosting options, including Azure Web Apps, containers, and virtual machines
+	Describe virtual networking, including the purpose of Azure Virtual Networks, Azure virtual subnets, peering, Azure DNS, VPN Gateway, and ExpressRoute
+	Define public and private endpoints
+	
+	
+	02/3 Describe Azure storage services
+	---------------------------------------------------------	
+	Compare Azure storage services
+	Describe storage tiers
+	Describe redundancy options
+	Describe storage account options and storage types
+	Identify options for moving files, including AzCopy, Azure Storage Explorer, and Azure File Sync
+	Describe migration options, including Azure Migrate and Azure Data Box
+		
+	
+	02/4 Describe Azure identity, access, and security
+	---------------------------------------------------------
+	Describe directory services in Azure, including Microsoft Entra ID and Microsoft Entra Domain Services
+	Describe authentication methods in Azure, including single sign-on (SSO), multifactor authentication (MFA), and passwordless
+	Describe external identities and guest access in Azure
+	Describe Microsoft Entra Conditional Access
+	Describe Azure Role Based Access Control (RBAC)
+	Describe the concept of Zero Trust
+	Describe the purpose of the defense in depth model
+	Describe the purpose of Microsoft Defender for Cloud
+
+	
+---------------------------------------------------------		
+03 Describe Azure management and governance
+---------------------------------------------------------
+
+	03/1 Describe cost management in Azure
+	---------------------------------------------------------
+	Describe factors that can affect costs in Azure
+	Compare the Pricing calculator and Total Cost of Ownership (TCO) calculator
+	Describe the Microsoft Cost Management tool
+	Describe the purpose of tags
+	
+	
+	03/2 Describe features and tools in Azure for governance and compliance
+	---------------------------------------------------------
+	Describe the purpose of Microsoft Purview
+	Describe the purpose of Azure Policy
+	Describe the purpose of resource locks
+	Describe the purpose of the Service Trust portal
+	
+	
+	03/3 Describe features and tools for managing and deploying Azure resources 
+	---------------------------------------------------------
+	Describe Azure portal
+	Describe Azure Cloud Shell, including Azure CLI and Azure PowerShell
+	Describe the purpose of Azure Arc
+	Describe Azure Resource Manager (ARM) and Azure ARM templates
+	
+	
+	03/4 Describe monitoring tools in Azure 
+	---------------------------------------------------------	
+	Describe the purpose of Azure Advisor.
+	Describe Azure Service Health.
+	Describe Azure Monitor, including Azure Log Analytics, Azure Monitor Alerts, and Application Insights.

@@ -1,0 +1,45 @@
+BLOCK BUTTON
+
+----------------
+NOTES
+----------------
+
+REFERENTES =>
+
+
+CASO 1:
+	$(document).ready(function () {
+		$("#ctl00_btn_aceptar").click(function () {
+			$("#ctl00_btn_aceptar").attr("disabled", "disabled")
+		});
+
+		
+CASO 2:		
+	$("#buttonid").on("click", function() {
+		$(this).prop("disabled", true);
+	});
+
+
+CASO 4: Con temporizador y spinner
+
+<button type="button" class="btn btn-primary btn-lg " id="load1" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">Submit Order</button>
+
+$('.btn').on('click', function () {
+  var $this = $(this);
+  $this.button('loading');
+  setTimeout(function () {
+    $this.button('reset');
+  }, 8000);
+});
+
+
+----------------
+RESOLUTION
+----------------
+<button type="submit" id="submit" class="btn btn-primary" data-loading-text="Enviando...">
+
+  $('#FormParteMedico').submit(function () {
+    $(':submit', this).attr('disabled', 'disabled');
+    $(':submit', this).button('loading');
+  });
+

@@ -1,0 +1,18 @@
+--Query para eliminar los registros finalizados a partir de una lista de nifs
+--IMPORTANTE -> Cuando eliminas un RH_FINALIZADO también se eliminan todos sus registros vinculados en RH_REGISTROS
+BEGIN TRANSACTION
+
+DELETE FROM RegHorarioPRE.dbo.RH_FINALIZADOS
+WHERE RHF_ID IN
+(
+select RHF.RHF_ID from
+PERSONA
+INNER JOIN RegHorarioPRE.dbo.RH_PERSONA
+ON PER_ID = RHP_FK_PERSONA_ID 
+AND RHP_FK_RH_CONEXION_ID = 1
+INNER JOIN RegHorarioPRE.dbo.RH_FINALIZADOS RHF
+ON RHP_ID = RHF_FK_RH_PERSONA_ID
+WHERE PER_NIF IN ('77133934F', '48093142G', '02744066M', '72504070C', '06010938A', '53822576T')
+)
+ROLLBACK
+COMMIT

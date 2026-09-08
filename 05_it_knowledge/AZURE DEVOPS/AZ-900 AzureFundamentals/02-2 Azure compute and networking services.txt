@@ -1,0 +1,300 @@
+
+-----------------------------
+Azure compute and networking services
+-----------------------------------------
+
+Upon completion of this module, you'll be able to:
+
+	Compare compute types, including container instances, virtual machines, and functions
+
+	Describe virtual machine (VM) options, including VMs, Virtual Machine Scale Sets, availability sets, Azure Virtual Desktop
+
+	Describe resources required for virtual machines
+
+	Describe application hosting options, including Azure Web Apps, containers, and virtual machines
+
+	Describe virtual networking, including the purpose of Azure Virtual Networks, Azure virtual subnets, peering, Azure DNS, VPN Gateway, and ExpressRoute
+
+	Define public and private endpoints
+
+
+
+Describe Azure virtual machines
+-----------------------------------------
+
+	What VMs Offer: Azure VMs provide a virtualized server in the cloud.
+	They’re ideal when you need full control over the OS, to run custom software, or configure unique hosting setups. 
+	Azure VMs give you the benefits of virtualization without buying or managing physical hardware.
+
+	Using VMs: 
+	VMs can be used individually or as groups for different purposes:
+
+	Single VMs: 
+	Useful for testing, development, or lightweight tasks.
+
+	Scale Sets: 
+	Automatically adjust the number of VMs based on demand. Scale sets are ideal for large-scale services as Azure manages load balancing and scaling.
+
+	Availability Sets: 
+	Improve resilience by grouping VMs across different power and network sources. These sets protect VMs from outages in single fault domains or during updates.
+
+	Common Uses:
+	Testing and development environments.
+	Running applications with variable demand, so you only pay for what you use.
+	Extending on-premises data centers into the cloud, providing backup capabilities.
+	Disaster recovery as a flexible, cost-effective alternative to traditional setups.
+
+	Resources for Each VM: 
+	When creating a VM, you select resources like:
+
+	Size (processor cores, memory).
+	Storage (HDD, SSD).
+	Networking (IP addresses, virtual networks).
+
+
+
+Describe Azure virtual desktop
+-------------------------------------
+	Another type of virtual machine is the Azure Virtual Desktop.
+	A cloud-based virtual desktop solution that offers secure remote access to a Windows environment from any device, ideal for remote work.
+
+	Azure Virtual Desktop (AVD)
+	Azure Virtual Desktop is a cloud service for virtual Windows desktops, accessible from any device. 
+	It provides secure, managed access with multifactor authentication and role-based controls.
+
+	AVD supports multiple users on one VM, keeping data and applications in the cloud for better security and efficiency.
+	
+	
+Describe Azure containers	
+-------------------------------------
+	
+	Containers offer a lightweight, flexible alternative to virtual machines, 
+	allowing multiple instances of applications on one host without managing an operating system per container. 
+	They are ideal for rapid scaling and dynamic workloads.
+		
+	Runs containerized applications with options like AKS for large-scale orchestration or ACI for quick, serverless deployments.
+
+	Types of Azure Containers:
+
+	Azure Container Instances (ACI): 
+	Quick, serverless way to run containers without managing VMs; ideal for simple, single-container tasks.
+
+	Azure Container Apps: 
+	PaaS for multi-container apps, adding load balancing and scaling.
+
+	Azure Kubernetes Service (AKS): 
+	Orchestrates and manages large groups of containers, handling complex, multi-container applications efficiently.
+
+	Use Cases
+	Containers often support a microservices approach, where components like frontend, backend, and storage each run in separate containers. 
+	This enables independent scaling and updates, improving resource efficiency.
+		
+	*VM virtualize a hardware vs Containers virtualize OS
+
+	
+Describe Azure functions
+-------------------------------------
+	Azure Functions is a serverless, event-driven compute service that runs code only in response to triggers, eliminating the need to manage VMs or containers. 
+	Resources are allocated automatically when triggered and deallocated once the function completes, saving costs by charging only for actual usage.
+
+	Benefits
+	----------
+	Automatic Scaling: 
+	Scales based on demand, handling variable loads efficiently.
+	
+	Stateless and Stateful Options: 
+	Default is stateless, but Durable Functions provide state tracking for workflows.
+	
+	Flexibility: 
+	While default is serverless, functions can run in managed environments, supporting features like virtual networks and isolation.
+	
+	
+Describe application hosting options
+-------------------------------------
+
+	Azure offers App Service, AKS, Functions, and Static Web Apps to host a variety of applications based on your needs and scale requirements.
+	
+	Virtual Machines (VMs): 
+	Provides maximum control over the hosting environment, allowing full customization. 
+	Suitable for those familiar with traditional server management.
+
+	Containers: 
+	Enables isolated and manageable hosting for different application parts, offering flexibility and efficiency.
+
+	Azure App Service: 
+	A PaaS hosting solution for web apps, APIs, background jobs, and mobile back-ends, 
+	supporting multiple programming languages and automated deployment from GitHub or Azure DevOps. 
+	It provides automatic scaling, high availability, and supports both Windows and Linux.
+
+		Types of App Services in Azure App Service:
+
+		Web Apps: 
+		Hosting for web applications in languages like ASP.NET, Java, Node.js, and Python.
+		
+		API Apps: 
+		Create and publish RESTful APIs with full support for Swagger, enabling easy consumption from clients.
+		
+		WebJobs: 
+		Run background tasks in various languages, which can be triggered or scheduled.
+		
+		Mobile Apps: 
+		Back-end services for mobile apps, supporting data storage, authentication, and push notifications.
+		
+		App Service handles most of the infrastructure decisions you deal with in hosting web-accessible apps:
+
+		Deployment and management are integrated into the platform.
+		Endpoints can be secured.
+		Sites can be scaled quickly to handle high traffic loads.
+		The built-in load balancing and traffic manager provide high availability.
+	
+	
+Describe Azure virtual networking	
+-------------------------------------
+
+	Azure virtual networks and subnets allow resources like VMs, web apps, and databases to communicate within Azure, 
+	with the internet, and with on-premises networks. Think of it as an extension of your local network.
+
+	Key Features of Azure Virtual Networking
+
+	Isolation & Segmentation: 
+	Define private IP address spaces and divide them into subnets to isolate resources.
+
+	Public & Private Endpoints: 
+	Public endpoints use a global IP, while private endpoints have internal IPs for secure connections.
+
+	Internet Communication: 
+	Enable internet access by assigning public IPs or using load balancers.
+
+	Internal Communication: 
+	Connect Azure resources securely within a network or across service endpoints.
+
+	On-Premises Connectivity:
+	Point-to-Site VPN: Connect individual computers to Azure.
+	Site-to-Site VPN: Connect your on-premises VPN to Azure VPN.
+	ExpressRoute: Provides private, high-bandwidth connectivity.
+	
+	Traffic Routing:
+	Route Tables: Customize traffic rules.
+	Border Gateway Protocol (BGP): Integrates with Azure VPN for advanced routing.
+	
+	Traffic Filtering:
+	Network Security Groups: Control inbound/outbound traffic.
+	Network Virtual Appliances: Deploy specialized VMs for firewalling or WAN optimization.
+	
+	Network Connections:
+	Virtual Network Peering: Connects virtual networks privately via Microsoft’s network.
+	User-Defined Routes: Customize routing between subnets or virtual networks for controlled traffic flow.
+	
+	
+Describe Azure virtual private networks
+------------------------------------------
+	A virtual private network (VPN) creates an encrypted tunnel over the internet to securely connect private networks. 
+	VPNs protect data in transit, preventing unauthorized access.
+	
+	An Azure VPN Gateway connects on-premises networks and Azure resources:
+		Site-to-Site: Connects on-premises networks to Azure virtual networks.
+		Point-to-Site: Connects individual devices to Azure virtual networks.
+		VNet-to-VNet: Connects Azure virtual networks to each other.
+		Each virtual network can have one VPN gateway, which can connect to multiple locations, including other VNets and on-premises networks.
+
+	VPN Gateway Types:
+		Policy-based: Uses IP addresses to specify which traffic to encrypt.
+		Route-based: Uses IP routing, making it more flexible for complex setups.
+	
+	High Availability Options:
+	If you’re configuring a VPN to keep your information safe, you also want to be sure that it’s a highly available and fault tolerant VPN configuration. 
+
+		Active/Standby: Two instances are deployed; the standby takes over if the active instance fails.
+		Active/Active: Both instances are active, each with a unique IP. This setup improves reliability and allows more connections.
+		ExpressRoute Failover: A VPN gateway can back up ExpressRoute connections if needed.
+		Zone-Redundant Gateways: In supported regions, VPN gateways can be deployed across availability zones for higher resilience against failures.
+	
+	
+	
+Describe Azure ExpressRoute	
+------------------------------------------
+	Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, 
+	with the help of a connectivity provider. This connection is called an ExpressRoute Circuit.
+	This setup enhances reliability, security, and speed.
+	
+	Benefits of ExpressRoute:
+	
+		Direct Access to Microsoft Cloud: 
+		Connects directly to Microsoft services, like Azure and Microsoft 365, across all regions.
+		
+		Global Connectivity: 
+		Allows multiple locations (offices or datacenters) to connect securely via ExpressRoute Global Reach.
+		
+		Dynamic Routing: 
+		Uses BGP for flexible, automatic routing between your network and Microsoft’s.
+		
+		Built-In Redundancy: 
+		Backup devices ensure high availability.
+	
+	ExpressRoute connectivity models:
+	
+		Colocation at a Cloud Exchange: 
+		For facilities close to a cloud exchange, use a virtual cross-connect to Microsoft.
+		
+		Point-to-Point Connection: 
+		Direct link between your location and Microsoft’s cloud.
+		
+		Any-to-Any (IP VPN): 
+		Extends your existing wide area network (WAN) to include Azure.
+		
+		Direct from ExpressRoute Sites: 
+		Connect at Microsoft’s global peering locations for high-speed data transfer.
+		
+	Security: 
+		With ExpressRoute, your data doesn't travel over the public internet, reducing the risks associated with internet communications. 
+		ExpressRoute is a private connection from your on-premises infrastructure to your Azure infrastructure.
+
+
+
+
+Describe Azure DNS
+------------------------------------------
+
+	Azure DNS is a service for hosting DNS domains and providing fast, reliable name resolution using Microsoft’s global Azure infrastructure. 
+	It allows you to manage DNS records alongside your other Azure resources.
+
+	Benefits of Azure DNS:
+	
+	Reliability and Performance: 
+		Hosted on Azure’s global network of DNS servers, providing high availability. 
+		Using anycast networking, it directs DNS queries to the closest server for faster responses.
+
+	Security: 
+	Azure DNS is based on Azure Resource Manager, which provides:
+		Role-Based Access Control (RBAC) to manage who can access specific actions.
+		Activity Logs to track user actions for troubleshooting.
+		Resource Locking to prevent accidental deletion of critical resources.
+	
+	Ease of Use: 
+	Integrated with Azure, allowing DNS management in the Azure portal and via PowerShell, Azure CLI, REST API, and SDKs.
+
+	Custom Virtual Networks: 
+	Supports private DNS domains, enabling custom domain names within private networks.
+
+	Alias Records: 
+	Alias records link to Azure resources (like IPs, Traffic Manager, or CDN) and automatically update if the linked IP changes.
+
+	Note: Azure DNS doesn’t sell domain names; you need to purchase domains through a third-party registrar or Azure App Service domains, then host them in Azure DNS for record management.
+
+
+
+
+
+
+
+Create VM 
+From Cloud Shell, run the following az vm create command to create a Linux VM
+az vm create --resource-group "learn-870316b3-424d-4f3b-a7c8-2ab594d46bee" --name my-vm --public-ip-sku Standard --image Ubuntu2204 --admin-username azureuser --generate-ssh-keys
+
+Run the following az vm extension set command to configure Nginx on your VM:
+az vm extension set --resource-group "learn-870316b3-424d-4f3b-a7c8-2ab594d46bee" --vm-name my-vm --name customScript --publisher Microsoft.Azure.Extensions --version 2.1 --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}' --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
+
+
+
+
+	

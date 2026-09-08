@@ -1,0 +1,93 @@
+
+-----------------------------
+Define cloud computing
+--------------------------------------
+
+	Microsoft Azure is a cloud computing platform with an ever-expanding set of services to help you build solutions to meet your business goals.
+	Azure Fundamentals is a series of three learning paths that familiarize you with Azure and its many services and features.
+	
+
+	What is cloud computing?
+	---------------------------------
+	Cloud computing is the delivery of computing services over the internet. 
+	Computing services include common IT infrastructure such as virtual machines, storage, databases, and networking.
+	Cloud services also expand the traditional IT offerings to include things like Internet of Things (IoT), machine learning (ML), and artificial intelligence (AI).
+	Mainly all Cloud provider offer Compute power (How much processing the computer can do)and Storage.
+	The pros is that with Cloud you can bring new computing resources very quickly and you dont have to cares about infrastructure maintenance.
+	
+	
+
+	Describe the shared responsibility model
+	---------------------------------------------------
+	IaaS = Infrastructure as a service 
+	PaaS = Platform as a service  
+	SaaS = Software as a service 
+	
+	IaaS places the most responsibility on the consumer, with the cloud provider being responsible for the basics of physical security, power, and connectivity. 
+	PaaS, being a middle ground between IaaS and SaaS, rests somewhere in the middle and evenly distributes responsibility between the cloud provider and the consumer.
+	SaaS places most of the responsibility with the cloud provider. 
+		
+		When using a cloud provider, you’ll always be responsible for:
+
+		The information and data stored in the cloud
+		Devices that are allowed to connect to your cloud (cell phones, computers, and so on)
+		The accounts and identities of the people, services, and devices within your organization
+		
+		The cloud provider is always responsible for:
+		The physical datacenter
+		The physical network
+		The physical hosts
+		
+		Your service model will determine responsibility for things like:
+		Operating systems
+		Network controls
+		Applications
+		Identity and infrastructure
+	
+	
+	Define cloud models, including public, private, and hybrid
+	------------------------------------------------------------------
+	What are cloud models? 
+	The cloud models define the deployment type of cloud resources. 
+	The three main cloud models are: private, public, and hybrid.
+	
+	Cloud Models Overview:
+
+	Private Cloud: Only for one company, with full control and high security, but costly.
+	Public Cloud: Managed by a provider, open to anyone, cost-effective, but less control.
+	Hybrid Cloud: Mix of private and public, allowing flexibility and security options.
+	Multi-Cloud: Uses multiple public cloud providers for unique features or redundancy.
+
+	Helpful Tools:
+
+	Azure Arc: Manages resources across any cloud model.
+	Azure VMware Solution: Moves VMware setups to Azure easily.
+	
+	
+	
+	
+	Identify appropriate use cases for each cloud model
+	------------------------------------------------------------------
+		
+
+	
+	
+	Describe the consumption-based model
+	---------------------------------------------------
+	
+	The consumption-based model in cloud computing lets you pay only for the resources you use, 
+	without upfront costs or investment in physical infrastructure. It’s part of operational expenditure (OpEx), 
+	unlike traditional capital expenditure (CapEx) where companies make large, one-time purchases.
+
+	Key Benefits:
+
+	No Upfront Costs: Only pay for resources when you need them, no investment in costly infrastructure.
+	Flexible Scaling: Easily add resources during high demand and reduce them when demand drops.
+	Efficiency: Avoids over- or underestimating resource needs, minimizing waste and optimizing performance.
+	With cloud computing, the provider manages the hardware, so companies can focus on solving business challenges and innovating faster. 
+	This model is essentially a "rent-as-you-go" approach for IT resources.
+	
+	
+	
+	Compare cloud pricing models
+	---------------------------------------------------

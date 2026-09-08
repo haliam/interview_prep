@@ -1,0 +1,111 @@
+
+-----------------------------
+ Describe features and tools in Azure for governance and compliance
+--------------------------------------
+
+
+After completing this module, you’ll be able to:
+
+	Describe the purpose of Microsoft Purview.
+	Describe the purpose of Azure Policy.
+	Describe the purpose of resource locks.
+	Describe the purpose of the Service Trust portal.
+	
+
+Describe the purpose of Microsoft Purview
+---------------------------------------------------------------------
+Microsoft Purview is a family of data governance, risk, and compliance solutions that helps you get a single, unified view into your data. 
+Two main solution areas comprise Microsoft Purview: risk and compliance and unified data governance.
+
+With Microsoft Purview, you can stay up-to-date on your data landscape thanks to:
+
+	Automated data discovery
+	Sensitive data classification
+	End-to-end data lineage
+
+Risk and compliance solutions
+	Protect sensitive data across clouds, apps, and devices.
+	Identify data risks and manage regulatory compliance requirements.
+	Get started with regulatory compliance.
+
+Unified data governance
+	Create an up-to-date map of your entire data estate that includes data classification and end-to-end lineage.
+	Identify where sensitive data is stored in your estate.
+	Create a secure environment for data consumers to find valuable data.
+	Generate insights about how your data is stored and used.
+	Manage access to the data in your estate securely and at scale.
+	
+	
+
+Describe the purpose of Azure Policy
+---------------------------------------------------------------------
+Azure Policy is a service in Azure that enables you to create, assign, and manage policies that control or audit your resources.
+
+- Types of Policies  
+  - Individual Policies: Apply specific rules.  
+  - Initiatives: Group related policies under a single goal.  
+
+- Application Levels  
+  - Resource Levels: Resource, Resource Group, Subscription.  
+  - Inheritance: Higher-level policies automatically apply to all nested resources.  
+
+- Key Features  
+  - **Evaluation**: Identifies non-compliant resources.  
+  - **Prevention**: Blocks creation of non-compliant resources.  
+  - **Automatic Remediation**: Fixes non-compliant configurations (e.g., missing tags).  
+  - **Exceptions**: Allows specific resources to be excluded from automatic remediation.  
+
+- Integration  
+  - Azure DevOps: Enforces policies during pre- and post-deployment stages.  
+
+Azure Policy Initiatives  
+- Definition: Group multiple related policies to achieve broader compliance goals.  
+- Example: "Enable Monitoring in Azure Security Center"  
+  - Included Policies:  
+    - Monitor unencrypted SQL databases.  
+    - Detect OS vulnerabilities.  
+    - Ensure endpoint protection is installed.  
+
+
+
+Describe the purpose of resource locks
+---------------------------------------------------------------------
+
+Resource Locks Overview  
+- Purpose: Prevent accidental deletion or modification of Azure resources.  
+- Scope: Can be applied to resources, resource groups, or entire subscriptions. Locks are **inherited** by nested resources.  
+
+Types of Locks  
+1. Delete:  
+   - Allows read/modify but prevents deletion.  
+2. ReadOnly:  
+   - Allows only read access, blocking both deletion and updates (similar to **Reader** role).  
+
+Managing Locks 
+- Tools: Azure Portal, PowerShell, Azure CLI, or Resource Manager templates.  
+- Location: Found under **Settings** in the Azure Portal.  
+
+Modifying Locked Resources  
+- Process:  
+  1. Remove the lock.  
+  2. Make desired changes (requires appropriate permissions).  
+- **Note**: Locks override RBAC, even **Owners** must remove the lock first.
+
+
+
+Describe the purpose of the Service Trust portal
+---------------------------------------------------------------------
+The Microsoft Service Trust Portal is a portal that provides access to various content, tools, and other resources about Microsoft security, privacy, and compliance practices.
+You can access the Service Trust Portal at https://servicetrust.microsoft.com/.
+
+Service Trust Portal Menu Overview  
+
+1. Home: Quick link to the portal's main page.  
+2. My Library:  
+   - Save/pin documents for easy access.  
+   - Get notifications for document updates.  
+3. All Documents:  
+   - Central repository for all documents.  
+   - Option to pin documents to **My Library**.
+
+

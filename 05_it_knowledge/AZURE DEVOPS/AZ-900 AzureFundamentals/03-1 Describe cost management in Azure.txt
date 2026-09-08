@@ -1,0 +1,179 @@
+
+-----------------------------
+Describe cost management in Azure
+--------------------------------------
+
+After completing this module, you’ll be able to:
+
+	Describe factors that can affect costs in Azure
+	Compare the Pricing calculator and Total Cost of Ownership (TCO) calculator
+	Describe the Microsoft Cost Management tool
+	Describe the purpose of tags
+	
+
+Describe factors that can affect costs in Azure
+---------------------------------------------------------------------
+
+Azure shifts development costs from (CapEx) to (OpEx).
+
+(CapEx) the capital expense of building out and maintaining infrastructure 
+(OpEx)  facilities to an operational expense of renting infrastructure as you need it, whether it’s compute, storage, networking, and so on.
+
+
+That OpEx cost can be impacted by many factors. Some of the impacting factors are:
+
+	Resource type
+	Consumption
+	Maintenance
+	Geography
+	Subscription type
+	Azure Marketplace
+	
+1. Resource Type & Configuration 
+	- Resource Settings: Costs vary by **type, settings**, and **region**.  
+	- Storage Account: Factors like **blob type, access tier (Hot/Cool), redundancy**, and **region** affect cost.  
+	- Virtual Machine (VM)**: **Licensing, size, cores, storage, network interface**, and **region** impact price.
+
+2. Consumption Model 
+	- Pay-As-You-Go: Pay based on actual usage, offering **flexibility**.  
+	- Reserved Instances: Commit to resources (1-3 years) for discounts up to **72%**, balancing **cost savings** with **scalability**.
+
+3. Maintenance  
+	- Resource Management: Unused resources like **storage** and **networking** after VM deprovisioning can increase costs. Regularly **audit** and **decommission** unused resources to control expenses.
+
+4. Geography  
+	- Region Pricing: Costs differ by **location** due to **power, labor, taxes**, etc.  
+	- Network Traffic:  
+	  - Inbound Transfers: Often free.  
+	  - Outbound Transfers: Priced by **zones** (e.g., Europe to Asia costs more than within Europe).
+
+5. Subscription Type  
+	- Free Tier: Offers **12 months** of free products + a **30-day credit**.  
+	- Always Free: Over **25 products** free (resource & region-dependent).
+
+6. Azure Marketplace**  
+	- Third-Party Solutions: Costs include **Azure services** + **vendor services**. Pricing depends on the **vendor's billing structure**.  
+	- Certified Solutions: Compliant with **Azure policies** for security and standards.
+
+Key Considerations:  
+	- Choose resource types and regions wisely to manage costs.  
+	- Monitor unused resources to avoid hidden expenses.  
+	- Utilize reserved instances for predictable workloads to save significantly.  
+	- Leverage the Azure Marketplace cautiously, considering vendor-specific costs.	  
+
+
+
+
+Compare the Pricing and Total Cost of Ownership calculators
+---------------------------------------------------------------------
+The pricing calculator and the total cost of ownership (TCO) calculator are two calculators that help you understand potential Azure expenses.
+
+Azure Pricing Tools Overview  
+
+1. Pricing Calculator  
+	- Purpose: Estimate the cost of provisioning Azure resources like **compute, storage, and networking**.  
+	- Usage:  
+	  - Add individual resources or build a complete solution.  
+	  - Adjust for **storage type, access tiers**, and **redundancy**.  
+	  - Ideal for planning **budget** before deployment.  
+	- Note: It provides **estimates only**; no resources are provisioned, and there are **no charges** for using it.  
+
+
+2. TCO (Total Cost of Ownership) Calculator  
+	- Purpose: Compare **on-premises** vs. **Azure cloud** costs.  
+	- Usage:  
+	  - Input current infrastructure: **servers, databases, storage, network traffic**.  
+	  - Add operational assumptions like **power** and **IT labor costs**.  
+	  - Provides a detailed **cost comparison** for transitioning to Azure.  
+	- Ideal For: Organizations evaluating **cost benefits** of moving from on-premises to Azure.  
+
+
+
+
+Exercise - Estimate workload costs by using the Pricing calculator
+---------------------------------------------------------------------
+
+Exercise - Compare workload costs using the TCO calculator
+---------------------------------------------------------------------
+
+Describe the Microsoft Cost Management tool
+---------------------------------------------------------------------
+
+Microsoft Cost Management Overview 
+
+Microsoft Cost Management is a service that helps organizations monitor, control, and optimize their Azure expenses. 
+It provides **real-time visibility**, **alerts**, and **budgeting tools** to track resource costs and prevent overspending.  
+
+1. Cost Analysis  
+	- Visual Insights: View total costs by **billing cycle, region, resource**, and more.  
+	- Spending Trends: Identify **trends** over time (monthly, quarterly, yearly).  
+	- Aggregated View: Analyze costs across the entire organization to **identify cost drivers** and **forecast expenses**.  
+
+2. Cost Alerts  
+	Types of Alerts:  
+	1. Budget Alerts: Triggered when spending reaches a defined threshold.  
+	   - Configured via Azure portal or API.  
+	   - Alerts based on **usage** or **cost**.  
+	2. Credit Alerts: Notify when **Azure credits** for Enterprise Agreements (EA) are 90% or 100% used.  
+	3. Department Spending Quota Alerts**: Warn when department expenses reach **specific quota percentages** (e.g., 50%, 75%).  
+
+3. Budgets  
+	- Set Spending Limits: Define budgets by **subscription, resource group, or service type**.  
+	- Trigger Automation: Advanced budgets can **suspend or modify** resources automatically when limits are exceeded.  
+	- Email Notifications: Alerts can send **emails** to designated recipients.  
+
+
+Microsoft Cost Management simplifies **financial governance** for Azure resources, making it easier to manage budgets, control costs, and ensure efficient cloud usage.  
+
+
+Describe the purpose of tags
+---------------------------------------------------------------------  
+
+Tags in Azure are **metadata labels** that help organize and manage cloud resources by associating them with relevant information. 
+They are essential for improving **resource visibility, cost management, and operational efficiency** as cloud environments scale.
+
+Key Purposes of Tags  
+
+1. **Resource Management**  
+   - **Identify resources** by workload, environment, business unit, or owner.  
+   - **Streamline resource location** and perform bulk actions.  
+
+2. **Cost Management & Optimization**  
+   - Group resources for **cost reporting** and **budget allocation**.  
+   - Track costs by **internal cost centers** or departments.  
+
+3. **Operations Management**  
+   - Organize resources by **criticality** to define and maintain **SLAs** (Service-Level Agreements).  
+
+4. **Security**  
+   - Classify data by security levels, e.g., **"Public"** or **"Confidential"**.  
+
+5. **Governance & Compliance**  
+   - Track resources for **regulatory standards** like **ISO 27001**.  
+   - Enforce **tagging policies** for ownership and compliance tracking.  
+
+6. **Workload Optimization & Automation**  
+   - Visualize resources in complex deployments using **application or workload tags**.  
+   - Integrate with tools like **Azure DevOps** for **automated tasks**.  
+
+
+Managing Tags  
+
+	- Methods:  
+	  - **Azure Portal, Azure CLI, PowerShell, REST API**, or **Resource Manager templates**.  
+	  
+	- Enforcement:  
+	  - Use **Azure Policy** to enforce tagging rules, ensuring resources are consistently tagged.  
+
+Example Tagging Structure  
+
+| **Name**        | **Value**                   |  
+|---------------- |---------------------------- |  
+| **AppName**     | Name of the application     |  
+| **CostCenter**  | Internal cost center code   |  
+| **Owner**       | Business owner’s name       |  
+| **Environment** | "Prod", "Dev", or "Test"    |  
+| **Impact**      | "Mission-critical", "High", "Low" |
+
+**Note**: Tagging flexibility allows selective tagging based on resource criticality, avoiding unnecessary tags for non-critical resources.  
+

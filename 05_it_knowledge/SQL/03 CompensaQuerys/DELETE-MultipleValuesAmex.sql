@@ -1,0 +1,10 @@
+
+BEGIN TRANSACTION
+
+--Borrado de jerarquías con tipo (33 = Registro Horario) que no corresponde en Amex 
+DELETE FROM [dbo].[JERARQUIA_APROBACION_PRODUCTOS_RELACION]
+      WHERE JAPR_ID IN (50817,50818,50819,50820,50821,50822,50823) 
+GO
+
+ROLLBACK
+COMMIT

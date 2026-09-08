@@ -1,0 +1,287 @@
+
+EJEMPLOS JS
+
+$(document).ready(function () {
+
+});
+
+function alertaAviso(contenido, titulo, txtBtnAceptar, icon) {
+  $.alert({
+    title: titulo != undefined ? titulo : "Aviso",
+    content: contenido,
+    icon: icon != undefined ? icon : 'fa fa-exclamation-triangle',
+    animation: 'scale',
+    closeAnimation: 'scale',
+    buttons: {
+      okay: {
+        text: txtBtnAceptar != undefined ? txtBtnAceptar : "Aceptar"
+      }
+    }
+  });
+}
+
+function alertaError(contenido) {
+  $.alert({
+    title: 'Error',
+    content: contenido,
+    icon: 'fa fa-exclamation-triangle',
+    animation: 'scale',
+    closeAnimation: 'scale',
+    buttons: {
+      okay: {
+        text: 'Aceptar'
+      }
+    }
+  });
+}
+
+function confirmacion(titulo, contenido, mensajeBotonAceptar, funcionAceptar, funcionCancelar, textBotonCancelar, icon) {
+  var icono = icon != undefined ? icon : 'fa fa-exclamation-triangle';
+
+  $.confirm({
+    title: titulo != undefined ? titulo : "Aviso",
+    content: contenido,
+    icon: icono,
+    animation: 'scale',
+    closeAnimation: 'zoom',
+    buttons: {
+      confirm: {
+        text: mensajeBotonAceptar != undefined ? mensajeBotonAceptar : "Aceptar",
+        action: function () {
+          $("#pError").css("display", "none");
+          if ($("#inpMotivoHorasExtra").length > 0 && $("#inpMotivoHorasExtra").val().length < 1) {
+            $("#pError").css("display", "block");
+            return false;
+          }
+
+          if (funcionAceptar != undefined) {
+            this.buttons.confirm.disable();
+            funcionAceptar();
+          }
+        }
+      },
+      cancelar:
+      {
+          text: textBotonCancelar != undefined ? textBotonCancelar : "Cancelar",
+          action: function () {
+            if (funcionCancelar != undefined) {
+              funcionCancelar();
+            }
+          }
+        }
+    }
+  });
+}
+
+function confirmacionSoloAceptar(titulo, contenido, mensajeBotonAceptar, funcionAceptar, icon) {
+  var icono = icon != undefined ? icon : 'fa fa-exclamation-triangle';
+  $.confirm({
+    title: titulo != undefined ? titulo : "Aviso",
+    content: contenido,
+    icon: icono,
+    animation: 'scale',
+    closeAnimation: 'zoom',
+    buttons: {
+      confirm: {
+          text: mensajeBotonAceptar != undefined ? mensajeBotonAceptar : "Aceptar",
+        action: function () {
+            if (funcionAceptar != undefined) {
+            this.buttons.confirm.disable();
+            funcionAceptar();
+          }
+        }
+      }
+    }
+  });
+}
+
+function generateContentConfirmacionHorasExtra(mensaje) {
+    var divContent = document.createElement('div');
+
+    var p = document.createElement('p');
+    p.textContent = mensaje;
+
+    var inpMotivo = document.createElement('textarea');
+    inpMotivo.id = 'inpMotivoHorasExtra';
+    inpMotivo.setAttribute('maxlength', '120');
+    inpMotivo.style.resize = "none";
+    inpMotivo.style.width = "100%";
+    inpMotivo.style.height = "100px";
+
+    var pError = document.createElement('p');
+    pError.id = 'pError';
+    pError.textContent = "Campo obligatorio";
+    pError.style.color = "crimson";
+    pError.style.display = "none";
+
+    divContent.appendChild(p);
+    divContent.appendChild(inpMotivo);
+    divContent.appendChild(pError);
+
+    return divContent;
+}
+
+function mostrarMensaje(mensaje, tipoMensaje, funcionAceptar, funcionCancelar, textTitulo, btnAceptar, btnCancelarText, icon)
+{
+    switch (tipoMensaje) {
+    case -1: //Esta opción no muestra nada
+        return true;
+        break;
+    case 0:
+        alertaAviso(mensaje, textTitulo, btnAceptar, icon);
+      return false;
+      break;
+    case 1:
+      alertaError(mensaje);
+      return false;
+      break;
+    case 2:
+        confirmacionSoloAceptar(textTitulo, mensaje, btnAceptar, funcionAceptar, icon);
+      break;
+    case 3:        
+        confirmacion(textTitulo, mensaje, btnAceptar, funcionAceptar, funcionCancelar, btnCancelarText, icon);
+        break;
+    case 4:
+        var content = generateContentConfirmacionHorasExtra(mensaje);
+        confirmacion(textTitulo, content, btnAceptar, funcionAceptar, funcionCancelar, btnCancelarText, icon);
+        break;
+    default:
+      alertaAviso(mensaje);
+      break;
+  }
+}
+
+function pad(str, max) {
+  str = str.toString();
+  return str.length < max ? pad("0" + str, max) : str;
+}
+
+function IntSecondsToStringFormat(seconds, mostrarSegundos) {
+  var h = parseInt(seconds / 3600);
+  var m = parseInt((seconds - (h * 3600)) / 60);
+  var s = seconds - (m * 60) - (h * 3600);
+  return FormatNumberLength(h, 2) + ':' + FormatNumberLength(m, 2) + (mostrarSegundos ? ':' + FormatNumberLength(s, 2) : "");
+}
+
+function SegundosToHoraMinutoSegundo(seconds) {
+
+    var h = parseInt(seconds / 3600);
+    var m = parseInt((seconds - (h * 3600)) / 60);
+    var s = seconds - (m * 60) - (h * 3600);
+
+    var respuesta = { hora: h, minutos: m, segundos: s };
+
+    return respuesta;
+}
+
+function HoraMinutosSegundosASegundos(horas, minutos, segundos) {
+    var horasEnSegundos = parseInt(horas * 3600);
+    var minutosEnSegundos = parseInt(minutos * 60);
+
+    return horasEnSegundos + minutosEnSegundos + parseInt(segundos);
+}
+
+function FormatNumberLength(num, length) {
+  var r = "" + num;
+  while (r.length < length) {
+    r = "0" + r;
+  }
+  return r;
+}
+
+function JavascriptDateToddMMyyyy(date) {
+  function pad(s) { return (s < 10) ? '0' + s : s; }
+  var d = new Date(date);
+  return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/');
+}
+
+function NombreDiaPorNumero(numeroDia)
+{
+  numeroDia = parseInt(numeroDia);
+  switch (numeroDia) {
+    case 0:
+      return dDomingo;
+      break;
+    case 1:
+      return dLunes;
+      break;
+    case 2:
+      return dMartes;
+      break;
+    case 3:
+      return dMiercoles;
+      break;
+    case 4:
+      return dJueves;
+      break;
+    case 5:
+      return dViernes;
+      break;
+    case 6:
+      return dSabado;
+      break;
+    default:
+      return "";
+      break;
+  }
+}
+
+function OcultarMostrarPanelPaginacion(idTabla) {
+  //Sí no necesita paginar, oculto el panel de paginación
+  if ($(idTabla + "_previous").hasClass("disabled") && $(idTabla + "_next").hasClass("disabled")) {
+    $(idTabla + "_paginate").hide();
+  }
+  else {
+    $(idTabla + "_paginate").show();
+  }
+
+  if ($(idTabla + "_length option:first").val() > $(idTabla + " tbody tr").length) {
+    $(idTabla + "_length").hide();
+    $(idTabla + "_info").hide();
+  }
+  else {
+    $(idTabla + "_length").show();
+    $(idTabla + "_info").show();
+  }
+}
+
+function IrAEncriptado(urlEncriptador, url, param1, param2, param3, nuevaVentana) {
+
+  if (nuevaVentana == null) {
+    nuevaVentana = false;
+  }
+
+  var array = [param1, param2, param3]
+  var dataToSend = JSON.stringify({ 'parameters': array });
+  var verificationToken = getToken();
+  $.ajax({
+    contentType: "application/json; charset=utf-8",
+    url: urlEncriptador,
+    dataType: "json",
+    type: 'POST',
+    async: false,
+    data: dataToSend,
+    headers: {
+        '__requestverificationtoken': verificationToken,
+    },
+    success: function (listaParametrosEncriptados) {
+      $.each(listaParametrosEncriptados, function (index, paramEncriptado) {
+        url = url.replace("param" + (index + 1), paramEncriptado);
+      });
+
+      window.open(url, nuevaVentana ? "_blank" : "_self");
+    },
+  });
+}
+
+$(".soloNumeros").mask("0999999999999", {
+});
+
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+
+    return true;
+}

@@ -1,0 +1,60 @@
+
+TIPS: 
+En jquery la clase se llama con: .nombreClase
+y un id:  con #nombreId
+
+
+--------------------------------------------------
+MOSTRAR O NO UN DIV A PARTIR DE UN BIT CHECKED
+----------------------------------------------------
+--------------
+JAVASCRIPT
+--------------
+This function is ok only without refresh 
+function ShowHideDivActivarOfertaTT(activarOfertaTT) {
+    var activarOfertaTT = document.getElementById("activarOfertaTT");
+    activarOfertaTT.style.display = (FinalizarHorasOficina.checked || FinalizarHorasTeletrabajo.checked) ? "block" : "none";
+}
+
+
+
+
+--------------
+JQUERY
+--------------
+
+Llamo la función en document ready para que al cargar el html 
+Compruebe el estado y luego los checkbox con la clase .check-oferta
+
+I call the function checkBoxOfertaChanged() in (document ready) 
+to check changes in checkbox state.
+
+I call the function mostrarDivActivarOfertaTT() in (document ready) 
+to check the checkbox state after load the html content.
+
+
+$(document).ready(function () {
+
+    checkBoxOfertaChanged();
+    mostrarDivActivarOfertaTT();  
+});
+
+function document ready() {
+
+    $(".check-oferta").change(function (e) {
+        mostrarDivActivarOfertaTT();
+    });
+}
+
+function mostrarDivActivarOfertaTT() {
+
+	var valueCheck = false;
+	$("#activarOfertaTT").hide();
+
+	$('.check-oferta').each(function () {
+		valueCheck = (this.checked ? $(this).val() : "");
+		if (valueCheck === true || valueCheck === "true") {
+			$("#activarOfertaTT").show();
+		}
+	});
+}

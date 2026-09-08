@@ -1,0 +1,78 @@
+
+---------------------------------------------
+Describe the benefits of using cloud services
+-------------------------------------------------------
+
+	When building or deploying a cloud application, two of the biggest considerations are uptime (or availability) and the ability to handle demand (or scale).
+	SLAs = Service-level agreements (Formal agreement between service provider and customer)
+
+
+	Describe the benefits of high availability and scalability in the cloud
+	------------------------------------------------------------------------------
+	
+	Availability = up time (Time the service is available) vs down (Time the service is unavailable) 
+
+	Service 99% SLA vs Service 99,9% SLA 
+	99% 1.6 h unavailable per week or 7h per month
+	99,9% 10 min unavailable per week or 43 minutes per month
+	
+	Scalability in Cloud Computing:
+
+	Scalability in cloud computing is the ability to adjust resources as demand changes, ensuring efficient performance without overspending.
+
+	Types of Scaling:
+
+	Vertical Scaling: Increases or decreases the capacity of a single resource. For instance, adding more CPU or RAM to a virtual machine (scale up) or reducing them if not needed (scale down).
+	Horizontal Scaling: Adds or removes resource instances. For example, during high traffic, more virtual machines are added (scale out); when demand drops, machines are reduced (scale in).
+
+	Scalability enables seamless handling of peak loads while controlling costs.
+	
+	
+	
+	Describe the benefits of reliability and predictability in the cloud
+	------------------------------------------------------------------------------
+	Reliability: 
+	The cloud is designed to keep things running even if one part fails. 
+	Resources are spread globally, so if one region has an issue, others keep working. Some systems even switch regions automatically to stay reliable.
+
+	Predictability:
+	Performance Predictability: Cloud services support steady performance with features like autoscaling, load balancing, and high availability. 
+								These features ensure resources automatically adjust to meet demand and distribute traffic evenly, keeping user experiences positive.
+								
+	Cost Predictability: Cloud cost management tools allow real-time tracking and analysis, helping predict expenses accurately. 
+						 Tools like Azure’s Pricing Calculator and Total Cost of Ownership (TCO) assist in planning and controlling cloud spend effectively.
+		
+				
+	
+	Describe the benefits of security and governance in the cloud
+	------------------------------------------------------------------------------
+	Cloud features help ensure that your deployed resources meet corporate and regulatory standards. 
+	You can use templates to ensure consistency, and cloud-based auditing flags any resources that are out of compliance, 
+	offering solutions for remediation. Updates to standards can also be easily applied to existing resources.
+
+	Security:
+
+	Infrastructure as a Service (IaaS): Gives you control over security, including managing patches and maintenance yourself.
+	Platform as a Service (PaaS) & Software as a Service (SaaS): These models handle security tasks like patches and maintenance for you.
+	
+	Cloud providers are also equipped to handle security threats, like Distributed Denial of Service (DDoS) attacks, making your infrastructure more secure.
+	By establishing strong governance from the start, you can keep your cloud environment secure, updated, and compliant.
+	
+	
+	Describe the benefits of manageability in the cloud
+	------------------------------------------------------------------------------
+	A major benefit of cloud computing is the manageability options:
+	
+	Management of the cloud (managing your cloud resources)
+
+	Automatically scale resource deployment based on need.
+	Deploy resources based on a preconfigured template, removing the need for manual configuration.
+	Monitor the health of resources and automatically replace failing resources.
+	Receive automatic alerts based on configured metrics, so you’re aware of performance in real time.
+	
+	Management in the cloud (manage your cloud environment and resources)
+
+	Through a web portal.
+	Using a command line interface.
+	Using APIs.
+	Using PowerShell.

@@ -1,0 +1,273 @@
+
+-----------------------------
+Azure identity, access, and security
+--------------------------------------
+
+After completing this module, you’ll be able to:
+
+	Describe directory services in Azure, including Microsoft Entra ID and Microsoft Entra Domain Services.
+	Describe authentication methods in Azure, including single sign-on (SSO), multifactor authentication (MFA), and passwordless.
+	Describe external identities and guest access in Azure.
+	Describe Microsoft Entra Conditional Access.
+	Describe Azure Role Based Access Control (RBAC).
+	Describe the concept of Zero Trust.
+	Describe the purpose of the defense in depth model.
+	Describe the purpose of Microsoft Defender for Cloud.
+	
+	
+Describe Azure directory services
+--------------------------------------
+
+Azure offers Microsoft Entra ID and Microsoft Entra Domain Services to manage identity and access across cloud and hybrid environments. 
+
+
+1. Microsoft Entra ID:
+	A cloud-based identity and access management service that secures access to Microsoft applications and custom apps.
+
+	Key Features:
+	- Authentication: Supports multifactor authentication, password resets, and smart lockout services.
+	- Single Sign-On (SSO): Users can access multiple apps with one set of credentials.
+	- Application Management: Centralized management for cloud and on-premises apps.
+	- Device Management: Register and manage devices with policies using tools like **Microsoft Intune**.
+	  
+	Who Uses It:
+	- IT Admins: Control access to resources and manage identities.
+	- Developers: Add SSO or credential-based authentication to apps.
+	- Users: Manage accounts and perform tasks like password resets.
+	- Service Subscribers: Authenticate for services like **Microsoft 365** and **Azure**.
+
+	Integration with On-Premises AD:
+	- Use **Microsoft Entra Connect** to synchronize identities between on-premises AD and Microsoft Entra ID.
+	- Provides consistent identity management and enables features like SSO across both environments.
+
+2. Microsoft Entra Domain Services:
+	Managed domain services offering classic directory features without requiring on-premises infrastructure.
+
+	Key Features:
+	- Domain Services: Provides domain join, group policy, LDAP, and Kerberos/NTLM authentication.
+	- Legacy App Support: Suitable for apps that require traditional domain services.
+	- Integration with Microsoft Entra ID: Enables users to sign in with their existing credentials.
+	- Managed Infrastructure: Azure handles backups, updates, and security for domain controllers.
+
+	How It Works:
+	- A managed domain is created with a unique namespace (domain name).
+	- Azure deploys two domain controllers (DCs) per region, fully managed by the platform.
+	- One-way synchronization from Microsoft Entra ID to the managed domain ensures a smooth lift-and-shift for legacy resources.
+
+
+
+Comparison of Microsoft Entra ID and Domain Services
+
+| Feature           | Microsoft Entra ID                                        | Microsoft Entra Domain Services             |
+|-------------------|-----------------------------------------------------------|---------------------------------------------|
+| Purpose           | Identity and access management for cloud and hybrid apps. | Traditional domain services in the cloud.   |
+| Authentication    | Multifactor authentication, SSO.                          | LDAP, NTLM/Kerberos for legacy apps.        |
+| Infrastructure    | Fully cloud-based, globally available.                    | Managed domain controllers in Azure.        |
+| Integration       | Connects with on-prem AD via Entra Connect.               | One-way sync from Entra ID to domain.       |
+| Use Case          | Modern apps and user management.                          | Legacy app migration to Azure.              |
+
+
+
+Describe Azure authentication methods
+--------------------------------------
+
+ Azure supports multiple authentication methods, including standard passwords, single sign-on (SSO), multifactor authentication (MFA), and passwordless.
+ 
+ 1. Single Sign-On (SSO)
+	SSO allows users to sign in once and access multiple applications without re-entering credentials. Benefits:
+
+	Reduces password fatigue and security risks.
+	Simplifies identity management for IT.
+	However, security depends on the initial login.
+
+2. Multifactor Authentication (MFA)
+	MFA adds a second layer of security by requiring:
+
+	Something you know (e.g., password or challenge question).
+	Something you have (e.g., phone for a code).
+	Something you are (e.g., fingerprint).
+	MFA protects against stolen passwords, enhancing security significantly.
+
+3. Passwordless Authentication
+	Eliminates the need for passwords, using:
+
+	Windows Hello for Business: Biometric or PIN tied to your PC.
+	Microsoft Authenticator App: Turns your phone into a credential using notifications and biometrics.
+	FIDO2 Security Keys: Hardware-based, phishing-resistant authentication via USB, NFC, or Bluetooth.
+	Summary
+	
+SSO simplifies access, MFA secures identities, and passwordless authentication enhances security with a seamless user experience. 
+
+
+Describe Azure external identities
+--------------------------------------
+
+External Identity: Refers to users, devices, or services outside your organization (partners, vendors, customers). 
+Microsoft Entra External ID allows secure collaboration and customer identity management.  
+
+1. B2B Collaboration  
+	- External users use their own credentials (Google, Facebook, corporate, or government-issued).  
+	- External users are added as **guests** in your directory for controlled access to apps.  
+
+2. B2B Direct Connect  
+	- Two-way trust for seamless collaboration with another Entra organization.  
+	- Supports **Teams shared channels**, where external users can access resources without being in your directory but are visible in Teams reports.  
+
+3. B2C (Business to Customer)  
+	- For consumer-facing apps using **Azure AD B2C**.  
+	- Manages customer identities securely for apps outside the Microsoft ecosystem.  
+
+
+
+Describe Azure conditional access
+--------------------------------------
+
+Conditional Access is a tool that Microsoft Entra ID uses to allow (or deny) access to resources based on identity signals.
+
+How It Works:  
+	1. Signal Collection: Gathers data like user location, device, and application.  
+	2. Decision Making: Allows, blocks, or challenges access based on conditions.  
+	3. Enforcement: Executes the decision (e.g., full access, MFA challenge, or deny).  
+
+Granular MFA:  
+	- Known location: No MFA challenge.  
+	- Unusual location: Requires MFA or blocks access.  
+
+When to Use Conditional Access:  
+	- MFA by Role/Location/Network: Example: MFA for admins or external users only.  
+	- Approved Client Apps: Limit access to specific apps (e.g., certain email clients).  
+	- Managed Devices Only: Enforce access from secure, compliant devices.  
+	- Block Untrusted Sources: Restrict access from unknown or high-risk locations.  
+
+
+Describe Azure role-based access control
+--------------------------------------
+Azure Role-Based Access Control (RBAC)  
+Azure provides built-in roles that describe common access rules for cloud resources. You can also define your own roles. 
+Each role has an associated set of access permissions that relate to that role.
+
+Purpose: Control resource access in your cloud environment by granting only the necessary permissions based on the **principle of least privilege**.  
+
+
+Key Benefits:  
+	- Efficient Management: Assign permissions via roles instead of individual users.  
+	- Built-in & Custom Roles: Azure provides common roles (Owner, Reader, etc.) and allows custom role creation.  
+	- Automatic Access Updates: Adding users to an Azure RBAC group grants them the same access as others in the group.  
+
+How Azure RBAC Works:  
+1. Scope-Based Application: Roles are applied to different scopes:  
+   - Management group (multiple subscriptions).  
+   - Single subscription (all resources).  
+   - Resource group (group of related resources).  
+   - Single resource (specific service).  
+
+2. Inheritance: Permissions granted at a parent scope apply to child scopes. Example:  
+   - Owner at management group level → Full control of all subscriptions.  
+   - Reader at subscription level → View-only access to all resource groups and resources.  
+
+Enforcement:  
+	- Azure Resource Manager: Azure RBAC controls actions on resources accessed via the Azure portal, PowerShell, CLI, etc.  
+	- Allow Model: If multiple roles grant different permissions (e.g., read and write), both permissions are allowed.  
+
+Note: Azure RBAC doesn’t manage **application or data-level security**, which must be handled by the application itself.  
+
+
+Describe Zero Trust model
+--------------------------------------
+
+Zero Trust is a security model that assumes the worst case scenario and protects resources with that expectation.
+
+Zero Trust security model is based on these guiding principles:
+
+	Verify explicitly:
+	 Always authenticate and authorize based on all available data points.
+	 
+	Use least privilege access:
+	 Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.
+	 
+	Assume breach:
+	 Minimize blast radius and segment access. Verify end-to-end encryption. Use analytics to get visibility, drive threat detection, and improve defenses.
+
+
+
+Describe defense-in-depth
+--------------------------------------
+The objective of defense-in-depth is to protect information and prevent it from being stolen by those who aren't authorized to access it.
+
+You can visualize defense-in-depth as a set of layers, with the data to be secured at the center and all the other layers functioning to protect that central data layer.
+
+	The physical security layer is the first line of defense to protect computing hardware in the datacenter.
+	The identity and access layer controls access to infrastructure and change control.
+	The perimeter layer uses distributed denial of service (DDoS) protection to filter large-scale attacks before they can cause a denial of service for users.
+	The network layer limits communication between resources through segmentation and access controls.
+	The compute layer secures access to virtual machines.
+	The application layer helps ensure that applications are secure and free of security vulnerabilities.
+	The data layer controls access to business and customer data that you need to protect.
+
+Physical Security
+	Goal: Prevent unauthorized physical access to data centers.
+	Methods: Secure buildings, restrict hardware access, prevent theft.
+
+Identity & Access
+	Goal: Protect user identities and control access.
+	Best Practices:
+	Use SSO and MFA.
+	Control infrastructure access and log all changes.
+
+Perimeter Security
+	Goal: Protect against network-based attacks.
+	Best Practices:
+	DDoS Protection filters large-scale attacks.
+	Perimeter Firewalls detect and alert on threats.
+
+Network Security
+	Goal: Limit resource communication to reduce attack spread.
+	Best Practices:
+	Deny by default inbound access.
+	Restrict outbound internet access and use secure connections.
+
+Compute Security
+	Goal: Protect virtual machines and systems from malware and unpatched vulnerabilities.
+	Best Practices:
+	Secure VM access and implement endpoint protection.
+	Keep systems patched and updated.
+
+Application Security
+	Goal: Minimize vulnerabilities in software.
+	Best Practices:
+	Make security a design requirement.
+	Secure sensitive secrets in storage.
+
+Data Security
+	Goal: Ensure data confidentiality, integrity, and availability.
+	Best Practices:
+	Protect data in databases, SaaS apps, cloud storage, and VMs.
+	Follow regulatory requirements for secure data handling.
+
+
+
+Describe Microsoft Defender for Cloud
+--------------------------------------
+
+Microsoft Defender for Cloud is a monitoring tool for security posture management and threat protection. 
+
+Key Features:
+
+1. Protection Across Environments:  
+   - Azure-native services: Monitors Azure PaaS services (App Service, Azure SQL, Azure Storage).  
+   - Hybrid/Multicloud support: Extends protection to **on-premises** and **other clouds** (AWS, GCP) via **Azure Arc**.  
+   - Agentless CSPM: Assesses security in AWS/GCP without agents, integrating into Azure’s **secure score**.
+
+2. Security Layers:  
+   - Assess: Continuous vulnerability scans for **VMs, containers, SQL servers** with findings integrated into **Microsoft Defender for Endpoint**.  
+   - Secure: Policies based on **Azure Security Benchmark**, tailored across subscriptions or tenants. Recommendations reduce the attack surface.  
+   - Defend:  
+     - Security alerts: Detailed alerts with remediation steps and integration with automation (e.g., Logic Apps).  
+     - Advanced threat protection: Features like **just-in-time VM access**, adaptive application controls, and **kill-chain analysis**.
+
+Use Cases:  
+	- Monitor: Track and secure resources automatically as they’re deployed.  
+	- Secure hybrid cloud: Protect **on-premises** and **multicloud resources** with centralized management.  
+	- Prioritize actions: Use the **secure score** to identify and address high-priority vulnerabilities.  
+	- Automate responses: Trigger workflows through **Logic Apps** in response to detected threats.
+

@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'cf-about',
+  template: `
+  <h3><a href="https://tipesoft.com/categories/Tutorial/Angular/">Angular Tutorial</a></h3>
+  <blockquote>
+    <p><em>Learn, Code, Enjoy, Repeat.</em></p>
+  </blockquote>
+
+  `,
+  styles: [
+  ]
+})
+export class AboutComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

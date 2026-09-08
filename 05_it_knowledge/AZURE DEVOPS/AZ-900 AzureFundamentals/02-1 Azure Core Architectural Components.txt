@@ -1,0 +1,114 @@
+
+-----------------------------
+Azure core architectural components of Azure
+------------------------------------------------------------
+The physical infrastructure for Azure starts with datacenters.
+Datacenters are grouped into Azure Regions or Azure Availability Zones that are designed to help you achieve resiliency and reliability for your business-critical workloads.
+
+
+	Azure gives you the freedom to build, manage, and deploy applications on a massive global network using your favorite tools and frameworks.
+	Azure provides more than 100 services that enable you to do everything from running your existing applications 
+	on virtual machines to exploring new software paradigms, such as intelligent bots and mixed reality.
+
+	Azure Subscription: Required for creating and using Azure services. In learning modules, you get a temporary subscription via the Learn sandbox. 
+	For personal or business use, you create your own account and subscription.
+
+	Azure Free Account: For new users, this account offers:
+
+	Free access to popular services for 12 months.
+	$200 credit for the first 30 days.
+	Access to over 25 always-free products.
+	
+	Azure Free Student Account: Offers students:
+
+	Free services for 12 months.
+	$100 credit and developer tools, without needing a credit card.
+	Learn Sandbox: Provides a temporary, free environment for learning modules. It’s cleaned up automatically, making it ideal for testing without extra charges.
+
+
+	Describe Azure regions, region pairs, and sovereign regions.
+	----------------------------------------------------------------
+
+	Regions: 
+	Geographical areas with one or more datacenters connected by a high-speed network. You choose a region when deploying Azure resources.
+
+	Region Pairs: 
+	Each region is paired with another region in the same geography, at least 300 miles apart. 
+	This helps with disaster recovery and reduces risk, as paired regions support each other in case of major events. 
+	Azure also prioritizes one region in a pair to restore services faster if there's a major outage.
+
+	Sovereign Regions: 
+	Special, isolated regions for legal or compliance needs. Examples include U.S. government-only regions and regions in China managed by 21Vianet.
+	
+	
+	Describe Availability Zones.
+	------------------------------------------------------------
+	Availability Zones: 
+	Physically separate datacenters within a region, each with independent power, cooling, and networking. If one zone fails, others continue running. 
+	Availability zones are ideal for mission-critical apps, supporting high availability with minimal downtime.
+	
+	To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. However, not all Azure Regions currently support availability zones.
+
+	
+	Describe Azure datacenters.
+	------------------------------------------------------------
+	Datacenters: 
+	Global facilities that house resources like servers. These datacenters are grouped into Regions or Availability Zones for redundancy and reliability.
+
+		
+	Describe Azure resources and Resource Groups.
+	------------------------------------------------------------
+
+	Resources: 
+	Basic Azure components, like VMs, databases, and networks.
+	
+	Resource Groups: 
+	Logical groupings for resources. When you apply changes or delete a resource group, it affects all resources within it. 
+	This setup helps manage access, actions, and deletion in bulk.
+
+		
+	Describe subscriptions.
+	------------------------------------------------------------
+	Subscriptions:
+	Subscriptions serve as containers for resource groups, allowing logical organization and consolidated billing.
+	
+	Types of Subscription Boundaries:
+		Billing Boundary: 
+		Manages costs by separating bills for each subscription.
+		
+		Access Control Boundary: 
+		Controls access and permissions at the subscription level.
+	
+	Use Cases: Subscriptions can organize by environment (e.g., dev vs. production), department, or billing needs, with the flexibility to create multiple subscriptions as needed.
+	
+	
+	Describe management groups.
+	------------------------------------------------------------
+	Management Groups:
+	Management Groups are containers for organizing multiple subscriptions, especially for large organizations.
+	Hierarchy & Inheritance: Policies, permissions, and access rules applied to a management group apply to all nested subscriptions, resource groups, and resources.
+	
+	Use Cases:
+	Policy Management: Set global policies, like restricting VM regions, that automatically apply to all child subscriptions.
+	Access Management: Assign roles at the management group level for broad access across subscriptions.
+	Limits: Supports up to 10,000 management groups in a directory, with six levels of hierarchy.
+	
+	
+	Describe the hierarchy of resource groups, subscriptions, and management groups.
+	-------------------------------------------------------------------------------------
+	This hierarchical structure—resources grouped into resource groups, then into subscriptions, and finally under management groups—helps 
+	simplify Azure management and ensure consistent policies and access across an organization’s resources.
+	
+	Resources > Resource Groups > Subscriptions > Management Groups
+	
+	In Azure, resources are organized in a simple hierarchy to help manage and control access, billing, and policies:
+
+	Resources: Basic building blocks like VMs, databases, and networks.
+
+	Resource Groups: Containers for related resources, allowing actions or permissions to apply to all resources within them. Each resource is in only one resource group.
+
+	Subscriptions: Containers for resource groups, used to manage costs and permissions. You can organize by environment (e.g., development, production) or department.
+
+	Management Groups: The top level, which can contain multiple subscriptions. Policies set here apply to all nested subscriptions and resource groups.
+
+	In short: Resources → Resource Groups → Subscriptions → Management Groups. This structure makes it easy to apply controls consistently across all resources.

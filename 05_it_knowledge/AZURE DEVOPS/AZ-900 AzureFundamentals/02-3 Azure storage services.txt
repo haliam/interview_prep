@@ -1,0 +1,261 @@
+
+-----------------------------
+Azure storage services
+--------------------------------------
+
+Upon completion of this module, you will be able to:
+
+	Compare Azure storage services
+
+	Describe storage tiers
+
+	Describe redundancy options
+
+	Describe storage account options and storage types
+
+	Identify options for moving files, including AzCopy, Azure Storage Explorer, and Azure File Sync
+
+	Describe migration options, including Azure Migrate and Azure Data Box
+	
+	
+	
+Describe Azure storage accounts
+--------------------------------------
+	A storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. 
+	Data in this account is secure, highly available, durable, and massively scalable.
+	
+	When you create your storage account, you’ll start by picking the storage account type:
+		Locally redundant storage (LRS)
+		Geo-redundant storage (GRS)
+		Read-access geo-redundant storage (RA-GRS)
+		Zone-redundant storage (ZRS)
+		Geo-zone-redundant storage (GZRS)
+		Read-access geo-zone-redundant storage (RA-GZRS)
+
+
+	Storage account endpoints
+		One of the benefits of using an Azure Storage Account is having a unique namespace in Azure for your data. 
+		In order to do this, every storage account in Azure must have a unique-in-Azure account name.
+	
+		When naming your storage account, keep these rules in mind:
+		Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+		Your storage account name must be unique within Azure. No two storage accounts can have the same name. This supports the ability to have a unique, accessible namespace in Azure.
+	
+	
+	
+Describe Azure storage redundancy
+--------------------------------------
+
+Azure Storage protects your data by storing multiple copies, ensuring high availability and durability 
+even during hardware failures, outages, or disasters. You can choose between various redundancy options based on cost, durability, and availability needs.
+
+	Redundancy in the Primary Region:
+
+		Locally Redundant Storage (LRS) 
+		   - Data is replicated three times within a single data center in the primary region.  
+		   - Provides 99.999999999% (11 nines) durability annually.  
+		   - Cost-effective but doesn't protect against data center disasters.  
+
+		Zone-Redundant Storage (ZRS)
+		   - Data is replicated across three availability zones in the primary region.  
+		   - Offers 99.9999999999% (12 nines) durability annually.  
+		   - Ensures data remains accessible even if an availability zone fails.  
+		   - Ideal for high-availability scenarios or compliance with regional data residency requirements.
+
+
+	Redundancy in a Secondary Region:
+	
+		For greater durability, data can also be replicated to a secondary region located hundreds of miles from the primary region, 
+		using Azure Region Pairs. This protects against regional disasters.
+
+		Geo-Redundant Storage (GRS)
+		   - Combines LRS in the primary region with asynchronous replication to LRS in the secondary region.  
+		   - Offers 99.99999999999999% (16 nines) durability annually.  
+		   - Secondary data is available only after a failover.  
+
+		Geo-Zone-Redundant Storage (GZRS) 
+		   - Combines ZRS in the primary region with asynchronous replication to LRS in the secondary region.  
+		   - Provides high availability, regional disaster recovery, and 16 nines durability annually.  
+
+
+	Read Access to Secondary Data:
+
+		For applications requiring continuous read access to secondary data, you can enable:  
+		- Read-Access Geo-Redundant Storage (RA-GRS)* 
+		- Read-Access Geo-Zone-Redundant Storage (RA-GZRS)  
+
+		This ensures data is accessible even if the primary region is unavailable. 
+		However, note that secondary data might be slightly out-of-date due to asynchronous replication (Recovery Point Objective, or RPO, typically <15 minutes).  
+
+	Key Takeaways
+	- LRS: Lowest cost, protects within one data center.  
+	- ZRS: Protects across zones in a region, ideal for high availability.  
+	- GRS: Protects against regional disasters, with a secondary region backup.  
+	- GZRS: Combines zone redundancy with regional disaster protection for maximum durability and performance.  
+
+
+
+Describe Azure storage services
+--------------------------------------
+
+Azure Storage is a versatile platform offering scalable and reliable storage solutions for a variety of data needs. 
+
+The services include:
+
+	Azure Blobs: A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage Gen2.
+	Azure Files: Managed file shares for cloud or on-premises deployments.
+	Azure Queues: A messaging store for reliable messaging between application components.
+	Azure Disks: Block-level storage volumes for Azure VMs.
+	Azure Tables: NoSQL table option for structured, non-relational data
+
+
+Benefits of Azure Storage Services:
+
+	Durability & Availability:  
+	   - Built-in redundancy protects against hardware failures.  
+	   - Options for regional replication and disaster recovery.  
+
+	Security:  
+	   - Data is encrypted at rest and in transit.  
+	   - Fine-grained access controls for enhanced security.  
+
+	Scalability:  
+	   - Supports petabytes of data for growing applications.  
+
+	Ease of Management:  
+	   - Fully managed infrastructure, reducing operational overhead.  
+
+	Accessibility:  
+	   - Access from anywhere via HTTP/HTTPS, SDKs, or APIs. 
+
+
+
+	Azure Blobs
+	- **Description**: Massively scalable object storage for unstructured data (text or binary). Ideal for use cases like big data analytics (Data Lake Storage Gen2), backups, or streaming media.  
+	- **Key Features**: 
+	  - Stores any type of data, including custom formats.
+	  - Accessible via REST API, SDKs, and command-line tools.  
+	  - Multiple tiers (Hot, Cool, Cold, Archive) optimize storage costs based on access frequency and retention requirements.  
+	- **Use Cases**:  
+	  - Serving files (e.g., images/documents).  
+	  - Storing log files, backups, and archived data.  
+	  - Streaming audio/video content.  
+
+
+	Azure Files
+	- **Description**: Fully managed cloud file shares accessible via SMB or NFS protocols.  
+	- **Key Features**:  
+	  - Seamlessly integrates with on-premises and cloud environments.  
+	  - Can be cached on Windows Servers using Azure File Sync for better performance.  
+	  - Supports scripting through PowerShell or Azure CLI.  
+	- **Use Cases**:  
+	  - Replacing on-premises file shares.  
+	  - Simplifying hybrid cloud solutions.  
+	  - Providing shared storage for distributed applications.  
+
+
+	Azure Queues
+	- **Description**: A message queuing system for storing and reliably delivering large volumes of messages between application components.  
+	- **Key Features**:  
+	  - Supports millions of messages, each up to 64 KB.  
+	  - Messages are delivered asynchronously.  
+	  - Integrates with compute services like Azure Functions for event-driven workflows.  
+	- **Use Cases**:  
+	  - Managing workloads for asynchronous processing.  
+	  - Triggering actions in response to queued events.  
+
+
+	Azure Disks
+	- **Description**: Managed block-level storage volumes for Azure Virtual Machines (VMs).  
+	- **Key Features**:  
+	  - Fully managed by Azure, eliminating hardware concerns.  
+	  - Offers high resiliency and availability compared to physical disks.  
+	  - Supports snapshots and backups for disaster recovery.  
+	- **Use Cases**:  
+	  - Persistent storage for Azure VMs.  
+	  - High-performance workloads requiring block storage.  
+
+
+	Azure Tables
+	- **Description**: A NoSQL data store for structured, non-relational data.  
+	- **Key Features**:  
+	  - Scalable storage for large volumes of structured data.  
+	  - Accessible from inside or outside Azure for hybrid/multicloud setups.  
+	  - Provides low-latency access for applications requiring quick lookups.  
+	- **Use Cases**:  
+	  - Storing user profiles, catalogs, or metadata.  
+	  - Supporting analytics on structured datasets.  
+
+
+
+Identify Azure data migration options
+--------------------------------------
+
+Azure provides tools for transferring data and workloads to Azure, whether in real-time or offline scenarios.
+
+	Azure Migrate:
+		A centralized service to assess and migrate on-premises systems to Azure.
+
+		Key Features:
+		Unified Platform: 
+			Manage assessment, migration, and tracking in one portal.
+		
+		Integrated Tools:
+			Discovery and Assessment: Identify servers (VMware, Hyper-V, physical) for migration.
+			Server Migration: Move servers and VMs to Azure.
+			Data Migration Assistant: Assess SQL Servers for migration readiness.
+			Azure Database Migration Service: Migrate databases to Azure SQL services or Azure VMs.
+			App Service Migration Assistant: Assess and migrate .NET and PHP apps.
+		
+		Use Cases:
+			Migrating servers, databases, and apps.
+			Moving SQL databases to Azure SQL services.
+			Transitioning web apps to Azure App Service.
+
+
+	Azure Data Box:
+		A physical device for transferring large amounts of data offline.
+
+		Key Features:
+			Capacity: Up to 80 TB per device.
+			Security: Encrypted data during transit; disks wiped after use.
+			Easy Setup: Connect, transfer data, and ship it back to Azure.
+		
+		Use Cases:
+			Import to Azure:
+				Bulk migrations (e.g., media libraries, workloads).
+				Seeding data for further incremental transfers.
+				Periodically moving large datasets.
+		
+			Export from Azure:
+				Disaster recovery: Retrieve data to restore services.
+				Compliance: Meet regulatory data relocation needs.
+				Cloud migration: Move data to another provider or back on-premises.
+
+
+	Comparison:
+	
+	| Tool           | Best For                                      |
+	|----------------|-----------------------------------------------|
+	| Azure Migrate  | Real-time migration of systems and databases. |
+	| Azure Data Box | Offline transfer of large data volumes.       |
+	
+	
+	
+
+Identify Azure file movement options
+--------------------------------------
+
+Azure offers tools to move, manage, and synchronize individual files or small groups of files effectively:
+
+	AzCopy
+	Azure Storage Explorer
+	Azure File Sync
+	
+	Comparison of Tools:
+	
+	| Tool                   | Best Use Case                                               | Interface          | Sync Type           |
+	|------------------------|-----------------------------------------------------------  |--------------------|---------------------|
+	| AzCopy                 | Script-based file uploads, downloads, and transfers.        | Command-line       | One-directional     |
+	| Azure Storage Explorer | Visual file management for Azure Storage.                   | Graphical          | N/A                 |
+	| Azure File Sync        | Centralized file sharing with local access via Azure Files. | Managed service    | Bi-directional      |

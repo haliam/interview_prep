@@ -1,0 +1,14 @@
+TransactionsSchemaSql
+
+
+BEGIN TRAN -- if not specified, each statement runs as an implicit transaction
+
+    -- Statement #1
+    -- Statement #2
+    ...
+    -- Statement N
+
+ROLLBACK -- ALL statements since BEGIN TRAN are canceled, no data will be changed
+
+COMMIT TRAN -- All statements since BEGIN TRAN committed to database
+
