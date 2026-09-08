@@ -1,0 +1,158 @@
+# Software Engineering Knowledge Table
+
+Below is a structured Markdown table summarizing key concepts across Agile, Architecture, DDD, Best Practices, Design Patterns, Azure, AI, .NET, APIs, Databases, DI/Testing, Logging, Frontend, Version Control, and IDEs.
+
+## Agile & Collaboration
+
+| Topic                      | Description                                                  |
+| -------------------------- | ------------------------------------------------------------ |
+| Scrum                      | Agile framework for iterative, incremental software delivery. |
+| Kanban                     | Visual workflow method to manage and improve work in progress. |
+| Jira                       | Agile project management and issue tracking tool.            |
+| Miro                       | Online collaborative whiteboard for brainstorming and planning. |
+| [Draw.io](https://Draw.io) | Diagramming tool for workflows, architectures, and processes. |
+
+## Architectures
+
+| Topic              | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Microservices      | Architecture of small, independent, loosely coupled services. |
+| Modular Monolith   | Monolithic app split into independent, well-defined modules. |
+| Vertical Slice     | Feature-based architecture delivering full-stack functionality. |
+| Hexagonal          | Ports-and-adapters architecture for decoupled, testable systems. |
+| Clean Architecture | Layered design separating concerns for maintainability.      |
+| Monolithic         | Single-tiered application where all components are unified.  |
+| MVC                | Model-View-Controller pattern for separating UI, logic, and data. |
+
+## Domain-Driven Design (DDD) & Related Concepts
+
+| Topic                         | Description                                                  |
+| ----------------------------- | ------------------------------------------------------------ |
+| Domain-Driven Design (DDD)    | Models software based on complex business domains.           |
+| Test-Driven Development (TDD) | Write tests before code to guide development.                |
+| CQRS                          | Separates read and write operations for scalability and clarity. |
+| Mediator Pattern              | Centralizes communication between components.                |
+| Repository Pattern            | Abstracts data access logic from business logic.             |
+
+## Best Practices
+
+| Topic      | Description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| Clean Code | Meaningful names, small functions, consistent formatting, avoid magic numbers/strings, error handling, comments. |
+| SOLID      | SRP, OCP, LSP, ISP, DIP principles.                          |
+| DRY        | Don’t Repeat Yourself.                                       |
+| KISS       | Keep It Simple, Stupid.                                      |
+| YAGNI      | You Aren’t Gonna Need It.                                    |
+
+## Design Patterns
+
+| Pattern   | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| Factory   | Creates objects without exposing creation logic.            |
+| Singleton | Ensures a class has only one instance globally.             |
+| Builder   | Step-by-step object creation for complex structures.        |
+| Decorator | Adds behavior to objects dynamically without altering code. |
+| Observer  | Notifies subscribers automatically when state changes.      |
+| Strategy  | Defines interchangeable algorithms for a task.              |
+
+## Azure Cloud
+
+| Service              | Description                                   |
+| -------------------- | --------------------------------------------- |
+| Azure DevOps (CI/CD) | Code hosting, pipelines, and releases.        |
+| Azure Functions      | Serverless compute for event-driven apps.     |
+| Azure B2C            | Identity management for customer-facing apps. |
+| Microsoft Entra ID   | Cloud-based identity and access management.   |
+| Application Insights | Telemetry and monitoring for app performance. |
+
+## Artificial Intelligence
+
+| Topic                | Description                                         |
+| -------------------- | --------------------------------------------------- |
+| OpenAI               | NLP, code generation, automation models.            |
+| GitHub Copilot       | AI coding assistant integrated into IDEs.           |
+| Speech-to-Text (STT) | Converts spoken language into written text.         |
+| Text-to-Speech (TTS) | Converts written text into natural-sounding speech. |
+
+## .NET
+
+| Topic          | Description                                      |
+| -------------- | ------------------------------------------------ |
+| .NET Framework | Windows-only, monolithic, enterprise apps.       |
+| .NET Core      | Cross-platform, modular, cloud-ready.            |
+| .NET 8         | Unified platform for all workloads.              |
+| ASP.NET Core   | Cross-platform framework for web apps and APIs.  |
+| Razor          | Syntax for embedding server code into web pages. |
+| C#             | Modern, object-oriented programming language.    |
+
+## API Development & Security
+
+| Topic         | Description                                  |
+| ------------- | -------------------------------------------- |
+| REST APIs     | Web services using HTTP for CRUD operations. |
+| FastEndpoints | High-performance .NET API framework.         |
+| Minimal APIs  | Lightweight API approach in .NET.            |
+| JWT           | Token-based authentication.                  |
+| OAuth         | Secure delegated access.                     |
+| Okta          | Identity and access management.              |
+| Postman       | API development, testing, collaboration.     |
+| Swagger       | API documentation and testing.               |
+
+## Databases & Data Access
+
+| Topic                 | Description                                  |
+| --------------------- | -------------------------------------------- |
+| SQL Server            | Microsoft relational database.               |
+| Entity Framework (EF) | ORM for .NET.                                |
+| Dapper                | Lightweight ORM for high-performance access. |
+| LINQ                  | Query syntax for collections and databases.  |
+| Stored Procedures     | Precompiled SQL operations.                  |
+| CosmosDB              | Globally distributed NoSQL database.         |
+
+## Dependency Injection & Testing
+
+| Topic           | Description                    |
+| --------------- | ------------------------------ |
+| Autofac         | DI container for .NET.         |
+| Ninject         | Lightweight DI framework.      |
+| ServiceProvider | Built-in .NET DI service.      |
+| xUnit           | Unit testing framework.        |
+| MSTest          | Microsoft’s testing framework. |
+| Moq             | Mocking library for .NET.      |
+
+## Logging & Monitoring
+
+| Topic   | Description                 |
+| ------- | --------------------------- |
+| NLog    | Flexible logging framework. |
+| Serilog | Structured logging library. |
+
+## Frontend Development
+
+| Topic                      | Description                                |
+| -------------------------- | ------------------------------------------ |
+| Angular 17                 | TypeScript-based frontend framework.       |
+| React 18                   | JavaScript library for UI components.      |
+| Microfrontend Architecture | Splits frontend into independent apps.     |
+| JavaScript                 | Core web programming language.             |
+| HTML                       | Standard markup language.                  |
+| SASS                       | CSS preprocessor.                          |
+| CSS                        | Stylesheet language.                       |
+| Bootstrap                  | Responsive CSS framework.                  |
+| Razor                      | Dynamic web pages with server-executed C#. |
+
+## Version Control Systems
+
+| Topic  | Description                              |
+| ------ | ---------------------------------------- |
+| Git    | Distributed version control system.      |
+| GitHub | Cloud-based Git repository hosting.      |
+| TFS    | Microsoft’s on-premises version control. |
+
+## IDEs & Development Tools
+
+| Topic              | Description                          |
+| ------------------ | ------------------------------------ |
+| Visual Studio      | Full-featured IDE for .NET.          |
+| Visual Studio Code | Lightweight, extensible code editor. |
+
