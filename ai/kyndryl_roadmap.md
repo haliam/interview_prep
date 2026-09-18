@@ -5,8 +5,6 @@
 **Timeline:** 4 weeks, intensive (~40h/week).
 **Strategy:** You already have the production-engineering and client-delivery credibility this JD wants. The gap is hands-on AI/agentic fluency. Close it with **one capstone project, built incrementally**, that hits every JD bullet and gives you a single confident end-to-end story for the interview — rather than presenting yourself as a junior AI engineer starting from zero.
 
-This roadmap merges three earlier drafts: a broad 12-week AI-engineer curriculum (kept for its pacing logic and technical depth), and two Kyndryl-JD-specific roadmaps at 8 weeks and 4 weeks (kept for their tight mapping to the actual job posting). Compressing to 4 weeks meant cutting ML theory, multi-project portfolios, and deep cloud/AWS work — see "What's deliberately cut" at the end.
-
 ---
 
 ## The Capstone: "SupportOps" — AI Ticketing/Support Agent
